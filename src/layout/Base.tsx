@@ -3,7 +3,7 @@ import styled from '../util/styled';
 export const Base = styled.div`
   --gap: 1px;
   --key: ${props => props.theme.colors.greyBorder};
-  --bg: white;
+  --bg: ${props => props.theme.colors.background};
 
   position: absolute;
   top: 0;
