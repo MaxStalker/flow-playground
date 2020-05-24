@@ -4,9 +4,8 @@ import {
   Line as LineType,
   Tag
 } from "../../../util/normalize-interaction-response";
-import styled from "@emotion/styled";
 import { css } from "@emotion/core";
-import theme from "../../../theme";
+import styled from "../../../util/styled";
 
 const PS1 = (tag: Tag) => {
   switch (tag) {
@@ -25,7 +24,7 @@ const PS1 = (tag: Tag) => {
 
 const Root = styled.div`
   --gap: 5px;
-  --font-family: ${theme.fonts.monospace};
+  --font-family: ${props => props.theme.fonts.monospace};
   --font-size: 11px;
   font-family: var(--font-family);
   font-size: var(--font-size);
@@ -33,7 +32,7 @@ const Root = styled.div`
   padding: 5px;
 
   & + & {
-    border-top: 1px dashed ${theme.colors.border};
+    border-top: 1px dashed ${props => props.theme.colors.border};
   }
 `;
 
@@ -45,7 +44,7 @@ const Label = styled.strong<{ tag: Tag }>`
     counter-increment: lines;
     content: "[" counter(lines) "]";
     margin-right: var(--gap);
-    color: ${theme.colors.text};
+    color: ${props => props.theme.colors.text};
   }
 
   &:empty {
@@ -60,17 +59,17 @@ const Label = styled.strong<{ tag: Tag }>`
   ${p =>
     p.tag === Tag.ERROR &&
     css`
-      color: ${theme.colors.error};
+      color: ${p.theme.colors.error};
     `}
   ${p =>
     p.tag === Tag.VALUE &&
     css`
-      color: ${theme.colors.purple};
+      color: ${p.theme.colors.purple};
     `}
   ${p =>
     p.tag === Tag.UNKNOWN &&
     css`
-      color: ${theme.colors.error};
+      color: ${p.theme.colors.error};
     `}
 `;
 
@@ -78,15 +77,15 @@ const Value = styled.span<{ tag: Tag }>`
   ${p =>
     p.tag === Tag.ERROR &&
     css`
-      color: ${theme.colors.error};
+      color: ${p.theme.colors.error};
     `}
 `;
 
 const Pre = styled.pre`
   border-radius: 3px;
   padding: 13px;
-  background: ${theme.colors.muted};
-  color: ${theme.colors.background};
+  background: ${props => props.theme.colors.muted};
+  color: ${props => props.theme.colors.background};
   font-family: var(--font-family);
   font-size: var(--font-size);
 `;
