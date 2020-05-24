@@ -9,7 +9,8 @@ import BrowserDetector from "components/BrowserDetector";
 import * as GoogleAnalytics from "./util/google-analytics";
 import client from "api/apollo/client";
 import globalStyles from "./globalStyles";
-import theme from "./theme";
+// import theme from "./theme";
+import monokaiTheme from './monokai-bright.theme';
 import "reset-css";
 
 import Playground from "containers/Editor";
@@ -62,7 +63,7 @@ const App: React.FC = () => {
       </Head>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={monokaiTheme}>
           <AppMobileWrapper>
             <Router>
               <FourOhFour path="/404" />
