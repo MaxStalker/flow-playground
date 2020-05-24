@@ -16,6 +16,11 @@ type Theme = {
     blue: string;
     heading: string;
   };
+  fonts: {
+    body: string;
+    heading: string;
+    monospace: string;
+  };
 };
 
 export default styled as CreateStyled<Theme>;
