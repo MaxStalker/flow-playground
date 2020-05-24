@@ -1,7 +1,6 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { css } from "@emotion/core";
-import theme from "../theme";
+import styled from "../util/styled";
 
 type SidebarItemInputProps = {
   type: string;
@@ -32,7 +31,7 @@ export const SidebarItemInput = styled.input<SidebarItemInputProps>`
   border-radius: 4px;
   margin-left: -5px;
   ::placeholder {
-    color: ${theme.colors.text};
+    color: ${props => props.theme.colors.text};
   }
   + .editIcon {
     opacity: 0;

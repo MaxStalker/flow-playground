@@ -1,7 +1,6 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { css } from "@emotion/core";
-import theme from "../theme";
+import styled from "../util/styled";
 
 type ItemProps = {
   active?: boolean;
@@ -34,7 +33,7 @@ export const SidebarItem = styled.div<ItemProps>`
         bottom: 6px;
         width: 6px;
         border-radius: 0 3px 3px 0;
-        background: ${theme.colors.primary};
+        background: ${p.theme.colors.primary};
       }
     `}
   ${p =>
@@ -50,7 +49,7 @@ export const SidebarItem = styled.div<ItemProps>`
   display:flex;
   align-items: center;
   font-weight: bold;
-  color: ${theme.colors.muted};
+  color: ${props => props.theme.colors.muted};
 
   & .avatar {
     margin-right: 1rem;
@@ -62,7 +61,7 @@ export const SidebarItem = styled.div<ItemProps>`
   & small,
   & .mute {
     font-weight: normal;
-    color: ${theme.colors.heading};
+    color: ${props => props.theme.colors.heading};
     font-size: 13px;
   }
 `;

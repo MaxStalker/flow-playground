@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
-import theme from "../theme";
+import styled from '../util/styled'
 
 type SidebarItemInsertProps = {
   onClick?: (e: React.SyntheticEvent<Element, Event>) => any | void;
@@ -9,16 +8,16 @@ type SidebarItemInsertProps = {
 
 export const SidebarItemInsert = styled.button<SidebarItemInsertProps>`
   border: none;
-  padding: none;
+  padding: 0;
   background: transparent;
   position: absolute;
   right: 0.75rem;
   top: 56%;
   transform: translateY(-50%);
 
-  color: ${theme.colors.grey};
+  color: ${props => props.theme.colors.grey};
   &:hover {
-    color: ${theme.colors.heading};
+    color: ${props => props.theme.colors.heading};
     cursor: ${p => (p.grab ? "grab" : "pointer")};
   }
   &:active {
