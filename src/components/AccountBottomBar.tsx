@@ -12,8 +12,7 @@ import useMousePosition from "../hooks/useMousePosition";
 import { Feedback as FeedbackRoot } from "layout/Feedback";
 import { FeedbackActions } from "layout/FeedbackActions";
 import { SidebarItemInsert } from "layout/SidebarItemInsert";
-import styled from "@emotion/styled";
-import theme from "../theme";
+import styled from "util/styled";
 import { Heading } from "layout/Heading";
 
 import { RenderResponse } from "components/RenderResponse";
@@ -37,14 +36,14 @@ const TypeListItem = styled.li<{ active: boolean }>`
 const AccountStateContainer = styled.div<{ height: number }>`
   display: flex;
   flex-direction: row;
-  justify-content: space-even;
+  justify-content: space-evenly;
   height: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: white;
-  border-top: var(--gap) solid var(--key);
+  border-top: ${p => `1px solid ${p.theme.colors.border}`};
+  background: ${p => p.theme.colors.storageBackground};
   min-height: ${p => p.height || STORAGE_PANEL_MIN_HEIGHT}px;
 `;
 
@@ -52,15 +51,26 @@ const StorageListContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-right: var(--gap) solid var(--key);
+  border-right: ${p =>`1px solid ${p.theme.colors.border}`};
+`;
+
+const StateWrapper = styled.div`
+  width: 100%;
+  background-color: ${p => p.theme.colors.stateContainerBackground};
+  padding-top: 2em;
+  padding-bottom: STORAGE_PANEL_MIN_HEIGHT - 40;
+  padding-left: 1.5em;
+  font-family: ${p => p.theme.fonts.monospace};
+  font-size: ${p => p.theme.fontSizes[4]};
+  overflow: auto;
 `;
 
 const DeploymentResultContainer = styled.div`
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
-  background: white;
-  border-top: var(--gap) solid var(--key);
+  background: ${p => p.theme.colors.deploymentContainerBackground};
+  border-top: ${p => `1px solid ${p.theme.colors.border}`};
 `;
 
 interface TypeListProps {
@@ -78,7 +88,7 @@ const IdentifierList: React.FC<TypeListProps> = ({
 }) => (
   <StorageListContainer>
     <Heading>
-      Storage{" "}
+      Storage
       <SidebarItemInsert grab={true}>
         <GoGrabber size="16px" onMouseDown={() => toggleResizing(true)} />
       </SidebarItemInsert>
@@ -87,7 +97,7 @@ const IdentifierList: React.FC<TypeListProps> = ({
     <div
       style={{
         width: "288px",
-        overflow: "scroll"
+        overflow: "auto"
       }}
     >
       <ul>
@@ -106,20 +116,9 @@ const IdentifierList: React.FC<TypeListProps> = ({
 );
 
 const StateContainer: React.FC<{ value: any }> = ({ value }) => (
-  <div
-    style={{
-      width: "100%",
-      backgroundColor: "#f3f3f3",
-      paddingTop: "2em",
-      paddingBottom: STORAGE_PANEL_MIN_HEIGHT - 40,
-      paddingLeft: "1.5em",
-      fontFamily: theme.fonts.monospace,
-      fontSize: theme.fontSizes[4],
-      overflow: "scroll"
-    }}
-  >
+  <StateWrapper>
     <pre>{JSON.stringify(value, null, 2)}</pre>
-  </div>
+  </StateWrapper>
 );
 
 const AccountState: React.FC<{

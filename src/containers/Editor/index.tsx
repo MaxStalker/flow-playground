@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteComponentProps } from "@reach/router";
 import { ProjectProvider } from "providers/Project";
-import { Base } from "layout/Base"
+import { Base } from "layout/Base";
 
 import EditorLayout from "./layout";
 

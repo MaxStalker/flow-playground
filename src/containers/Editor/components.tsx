@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Flex, Button, Box } from "theme-ui";
-import styled from "@emotion/styled";
 import { FaShareSquare } from "react-icons/fa";
 import { motion } from "framer-motion";
 import useClipboard from "react-use-clipboard";
@@ -12,6 +11,7 @@ import { EntityType, ActiveEditor } from "providers/Project";
 import { useProject } from "providers/Project/projectHooks";
 import { Project } from "api/apollo/generated/graphql";
 
+import styled from "../../util/styled";
 import debounce from "../../util/debounce";
 import Mixpanel from "../../util/mixpanel";
 
@@ -214,7 +214,7 @@ const BottomBarContainer: React.FC<BottomBarContainerProps> = ({ active }) => {
 
 const AnimatedText = styled.div`
   position: relative;
-  color: #fff;
+  color: ${props => props.theme.colors.primary};
   &:before {
     content: "Click here to start a tutorial";
     animation: animatebg 7s infinite;

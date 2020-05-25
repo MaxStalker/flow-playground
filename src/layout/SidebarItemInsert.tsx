@@ -14,13 +14,13 @@ export const SidebarItemInsert = styled.button<SidebarItemInsertProps>`
   right: 0.75rem;
   top: 56%;
   transform: translateY(-50%);
-
-  color: ${props => props.theme.colors.grey};
+  color: ${props => props.theme.colors.heading};
+  opacity: 0.5;
   &:hover {
-    color: ${props => props.theme.colors.heading};
-    cursor: ${p => (p.grab ? "grab" : "pointer")};
+    opacity: 1;
+    cursor: ${p => (p.grab ? "ns-resize" : "pointer")};
   }
   &:active {
-    cursor: ${p => (p.grab ? "grabbing" : "pointer")};
+    cursor: ${p => (p.grab ? "ns-resize" : "pointer")};
   }
 `;

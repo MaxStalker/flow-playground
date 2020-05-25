@@ -1,5 +1,5 @@
-import styled from "@emotion/styled"
+import styled from '../util/styled';
 
 export const SidebarItems = styled.div`
-  background:var(--key);
-`
+  background: ${props => props.theme.colors.listBackground};
+`;

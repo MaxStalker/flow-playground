@@ -1,9 +1,11 @@
-import styled from "@emotion/styled";
+import styled from '../util/styled';
 
 export const Sidebar = styled.div`
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
-  background: var(--bg);
-  overflow-y:scroll;
+  overflow-y: auto;
+  width: 250px;
+  background: ${p => p.theme.colors.background};
+  border-right: ${p => `1px solid ${p.theme.colors.border}`}; 
 `;

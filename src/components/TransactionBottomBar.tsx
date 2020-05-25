@@ -14,8 +14,7 @@ import { Feedback as FeedbackRoot } from "layout/Feedback";
 import { Heading } from "layout/Heading";
 import { FeedbackActions } from "layout/FeedbackActions";
 
-import styled from "@emotion/styled";
-import theme from "../theme";
+import styled from "../util/styled";
 
 const Clear = styled.div`
   display: flex;
@@ -26,7 +25,7 @@ const Clear = styled.div`
   }
   &:hover {
     cursor: pointer;
-    color: ${theme.colors.error};
+    color: ${p=> p.theme.colors.error};
   }
 `;
 

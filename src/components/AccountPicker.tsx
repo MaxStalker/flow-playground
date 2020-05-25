@@ -44,7 +44,7 @@ const AccountPicker: React.FC<AccountPickerProps> = ({
         sx={{
           padding: "0.8rem 0.5rem",
           alignItems: "center",
-          border: `1px solid ${theme.colors.borderDark}`,
+          border: `1px solid ${theme.colors.brightBorder}`,
           backgroundColor: theme.colors.background,
           borderRadius: "50px",
           width: "224px"
@@ -62,7 +62,7 @@ const AccountPicker: React.FC<AccountPickerProps> = ({
         sx={{
           padding: "0.8rem 0.5rem",
           alignItems: "center",
-          border: `1px solid ${theme.colors.borderDark}`,
+          border: `1px solid ${theme.colors.brightBorder}`,
           backgroundColor: theme.colors.background,
           borderRadius: "8px"
         }}

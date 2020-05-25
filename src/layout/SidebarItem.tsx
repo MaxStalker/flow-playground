@@ -22,8 +22,8 @@ export const SidebarItem = styled.div<ItemProps>`
   ${p =>
     p.active &&
     css`
-      background: rgba(255, 255, 255, 0.75);
-
+      background: ${p.theme.colors.activeListItem};
+      color: ${p.theme.colors.activeListItemLabel};
       &:after {
         content: "";
         display: block;
@@ -42,7 +42,8 @@ export const SidebarItem = styled.div<ItemProps>`
       cursor: pointer;
       &:hover,
       &:focus {
-        background: rgba(255, 255, 255, 0.75);
+        background: ${p.theme.colors.activeListItem};
+        color: ${p.theme.colors.activeListItemLabel};
       }
     `}
 
