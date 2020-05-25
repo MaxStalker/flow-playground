@@ -1,6 +1,8 @@
 import React from "react";
-import styled from "@emotion/styled";
 import configureMonaco from "../util/configure-monaco";
+import styled from '../util/styled'
+// import cadenceTheme from "../cadenceTheme";
+const monokaiBright = require('monaco-themes/themes/Monokai.json');
 
 type EditorState = {
   model: any;
@@ -10,6 +12,12 @@ type EditorState = {
 const EditorContainer = styled.div`
   width: 100%;
   height: 100%;
+  .monaco-editor{
+      .margin{
+        background-color: ${props => props.theme.colors.editorMargin};
+        color: green;
+      }
+  } 
 `;
 
 class CadenceEditor extends React.Component<{
@@ -51,12 +59,16 @@ class CadenceEditor extends React.Component<{
   componentDidMount() {
     if (typeof document !== "undefined") {
       this.monaco = require("monaco-editor");
+      this.monaco.editor.defineTheme("myTheme", monokaiBright );
+
       configureMonaco(this.monaco);
+      this.monaco.editor.setTheme("myTheme");
+
       const monacoOptions = {
         language: "Cadence",
         minimap: {
-          enabled: false
-        }
+          enabled: false,
+        },
       };
 
       this.editor = this.monaco.editor.create(
@@ -88,7 +100,7 @@ class CadenceEditor extends React.Component<{
 
     const state: EditorState = {
       model,
-      viewState: null
+      viewState: null,
     };
 
     this.editorStates[id] = state;
