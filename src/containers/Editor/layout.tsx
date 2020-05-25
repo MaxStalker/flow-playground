@@ -3,10 +3,10 @@ import { Button, Flex, Text } from "theme-ui";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaCodeBranch, FaDiscord, FaTwitter } from "react-icons/fa";
-
 import { Header as HeaderRoot } from "layout/Header";
 import Sidebar from "components/Sidebar";
 import Examples from "components/Examples";
+import Logo from "components/Logo";
 
 import Mixpanel from "../../util/mixpanel";
 
@@ -28,6 +28,7 @@ const FDP = [
   "88c52aea-76e0-4096-bca1-8cdde66e2fc5",
   "068f7218-98b7-4674-bf13-774155d145f0"
 ];
+
 
 const EditorLayout: React.FC = () => {
   const [showExamples, toggleShowExamples] = useState(false);
@@ -56,7 +57,7 @@ const EditorLayout: React.FC = () => {
               alignItems: "center"
             }}
           >
-            <img src="/flow_logo.jpg" alt="Flow Logo" width="40" height="40" />
+            <Logo/>
             <Text
               pl={1}
               sx={{
