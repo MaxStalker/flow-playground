@@ -8,11 +8,18 @@ export default {
     greyBorder: "#D8D8D8",
     purple: "#f694ff",
     border: "rgb(240, 240, 240)",
+    brightBorder: "rgb(222, 222, 222)",
     borderDark: "rgb(222, 222, 222)",
     shadowColor: "rgb(222, 222, 222)",
     error: "#f44336",
     blue: "#0000ff",
-    heading: "#919191"
+    heading: "#919191",
+    editorMargin: "#FFF",
+    activeListItem: "rgba(255,255,255,0.75)",
+    activeListItemLabel: "#fff",
+    storageBackground: '#fff',
+    stateContainerBackground: '#f3f3f3',
+    deploymentContainerBackground: "#fff",
   },
   fonts: {
     body: "Interstate, system-ui, sans-serif",
@@ -72,6 +79,7 @@ export default {
       borderRadius: "5px",
       "&:hover": {
         background: "rgb(245, 245, 245)",
+        color: "text"
       }
     }
   },
