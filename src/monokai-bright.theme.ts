@@ -19,6 +19,7 @@ const stateContainerBackground = background;
 const storageBackground = background;
 const border = whitespace;
 const brightBorder = '#6d6d47';
+const logoLetters = white;
 
 const editorColors = {
   'comment 0': '#75715e',
@@ -84,6 +85,7 @@ updatedTheme.colors = {
   storageBackground,
   stateContainerBackground,
   deploymentContainerBackground,
+  logoLetters
 };
 
 updatedTheme.buttons.primary.color = white;

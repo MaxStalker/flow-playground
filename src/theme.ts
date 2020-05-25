@@ -20,6 +20,7 @@ export default {
     storageBackground: '#fff',
     stateContainerBackground: '#f3f3f3',
     deploymentContainerBackground: "#fff",
+    logoLetters: "#a2824"
   },
   fonts: {
     body: "Interstate, system-ui, sans-serif",

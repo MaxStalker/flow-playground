@@ -6,7 +6,7 @@ import { FaCodeBranch, FaDiscord, FaTwitter } from "react-icons/fa";
 import { Header as HeaderRoot } from "layout/Header";
 import Sidebar from "components/Sidebar";
 import Examples from "components/Examples";
-import Logo from "components/Logo";
+import { Logo, LogoText } from "components/Logo";
 
 import Mixpanel from "../../util/mixpanel";
 
@@ -58,16 +58,7 @@ const EditorLayout: React.FC = () => {
             }}
           >
             <Logo/>
-            <Text
-              pl={1}
-              sx={{
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-                position: "relative"
-              }}
-            >
-              Playground
-            </Text>
+            <LogoText pl={1}>Playground</LogoText>
 
             {!projectIsPlayground && (
               <Button

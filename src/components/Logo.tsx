@@ -1,10 +1,11 @@
 import React from 'react';
+import { Text } from 'theme-ui';
 import styled from 'util/styled';
 
 const LogoContainer = styled.svg`
   width: 40px;
   height: 40px;
-  
+
   .logo-circle {
     fill: none;
     stroke: ${p => p.theme.colors.primary};
@@ -16,11 +17,8 @@ const LogoContainer = styled.svg`
   }
 `;
 
-export default () => (
-  <LogoContainer
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 487.03 487.03"
-  >
+export const Logo = () => (
+  <LogoContainer xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.03 487.03">
     <g>
       <g>
         <circle className="logo-circle" cx="243.52" cy="243.52" r="230.02" />
@@ -44,3 +42,10 @@ export default () => (
     </g>
   </LogoContainer>
 );
+
+export const LogoText = styled(Text)`
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  color: ${p => p.theme.colors.logoLetters};
+`;

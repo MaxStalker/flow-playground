@@ -23,6 +23,7 @@ type Theme = {
     storageBackground: string;
     deploymentContainerBackground: string;
     stateContainerBackground: string;
+    logoLetters: string;
   };
   fonts: {
     body: string;
