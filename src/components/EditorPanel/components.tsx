@@ -113,7 +113,7 @@ export const PanelFooter: React.FC<{ dismiss: () => void }> = ({
         </motion.div>
         <Box
           sx={{
-            overflowY: open && children ? "scroll" : "hidden",
+            overflowY: open && children ? "auto" : "hidden",
             display: "flex",
             maxWidth: "80%",
             marginLeft: "2rem"
