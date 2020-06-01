@@ -26,10 +26,10 @@ const TypeListItem = styled.li<{ active: boolean }>`
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  color: #2f2f2f;
-  ${li => (li.active ? "background: #f5f5f5;" : "")}
+  color: ${(p) => p.active ? p.theme.colors.storageItemColor : ``};
+  background: ${(p) => p.active ? p.theme.colors.activeStorageItemBackground : ``};
   &:hover {
-    background: #f5f5f5;
+    background: ${(p) => p.theme.colors.activeStorageItemBackground};
   }
 `;
 

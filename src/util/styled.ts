@@ -21,6 +21,8 @@ type Theme = {
     activeListItemLabel: string;
     listBackground: string;
     storageBackground: string;
+    storageItemColor: string;
+    activeStorageItemBackground: string;
     deploymentContainerBackground: string;
     stateContainerBackground: string;
     logoLetters: string;

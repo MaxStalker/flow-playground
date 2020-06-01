@@ -20,6 +20,7 @@ const storageBackground = background;
 const border = whitespace;
 const brightBorder = '#6d6d47';
 const logoLetters = white;
+const activeStorageItemBackground = whitespace;
 
 const editorColors = {
   'comment 0': '#75715e',
@@ -83,17 +84,18 @@ updatedTheme.colors = {
   activeListItem,
   activeListItemLabel,
   storageBackground,
+  activeStorageItemBackground,
   stateContainerBackground,
   deploymentContainerBackground,
-  logoLetters
+  logoLetters,
 };
 
 updatedTheme.buttons.primary.color = white;
 updatedTheme.buttons.secondary = {
   ...updatedTheme.buttons.secondary,
   '&:hover': {
-    background: text,
-    color: whitespace,
+    background: activeListItem,
+    color: 'text',
   },
 };
 
