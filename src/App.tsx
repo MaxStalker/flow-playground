@@ -1,20 +1,19 @@
-import React, { useEffect }from "react";
-import { Global } from "@emotion/core";
-import { ThemeProvider, Text } from "theme-ui";
-import { Root, Head } from "react-static";
-import { Router, globalHistory } from "@reach/router";
-import { ApolloProvider } from "@apollo/react-hooks";
-import AppMobileWrapper from "containers/AppMobileWrapper";
-import BrowserDetector from "components/BrowserDetector";
-import * as GoogleAnalytics from "./util/google-analytics";
-import client from "api/apollo/client";
-import globalStyles from "./globalStyles";
-// import theme from "./theme";
-import monokaiTheme from './monokai-bright.theme';
-import "reset-css";
+import React, { useEffect, useState } from 'react';
+import { Global } from '@emotion/core';
+import { ThemeProvider, Text } from 'theme-ui';
+import { Root, Head } from 'react-static';
+import { Router, globalHistory } from '@reach/router';
+import { ApolloProvider } from '@apollo/react-hooks';
+import AppMobileWrapper from 'containers/AppMobileWrapper';
+import BrowserDetector from 'components/BrowserDetector';
+import * as GoogleAnalytics from './util/google-analytics';
+import client from 'api/apollo/client';
+import globalStyles from './globalStyles';
+import 'reset-css';
+import ThemeContext, { mapTheme } from './contexts/ThemeContext';
 
-import Playground from "containers/Editor";
-import FourOhFour from "./pages/404";
+import Playground from 'containers/Editor';
+import FourOhFour from './pages/404';
 
 GoogleAnalytics.initialize(process.env.GA_TRACKING_CODE);
 
@@ -30,6 +29,10 @@ const App: React.FC = () => {
       GoogleAnalytics.pageview(window.location);
     });
   }, []);
+
+  const [activeTheme, setTheme] = useState('Dark - Monokai Bright');
+  const contextValue = { activeTheme, setTheme };
+  const theme = mapTheme(activeTheme);
 
   return (
     <Root>
@@ -63,24 +66,26 @@ const App: React.FC = () => {
       </Head>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
-        <ThemeProvider theme={monokaiTheme}>
-          <AppMobileWrapper>
-            <Router>
-              <FourOhFour path="/404" />
-              <Playground path="/*" />
-            </Router>
-            <Text
-              sx={{
-                color: "lightgrey",
-                position: "absolute",
-                bottom: "1rem",
-                right: "1rem"
-              }}
-            >
-              v0.10-alpha
-            </Text>
-          </AppMobileWrapper>
-        </ThemeProvider>
+        <ThemeContext.Provider value={contextValue}>
+          <ThemeProvider theme={theme}>
+            <AppMobileWrapper>
+              <Router>
+                <FourOhFour path="/404" />
+                <Playground path="/*" />
+              </Router>
+              <Text
+                sx={{
+                  color: 'lightgrey',
+                  position: 'absolute',
+                  bottom: '1rem',
+                  right: '1rem',
+                }}
+              >
+                v0.10-alpha
+              </Text>
+            </AppMobileWrapper>
+          </ThemeProvider>
+        </ThemeContext.Provider>
       </ApolloProvider>
     </Root>
   );
