@@ -6,6 +6,7 @@ export const Sidebar = styled.div`
   flex-direction: column;
   overflow-y: auto;
   width: 250px;
+  resize: horizontal;
   background: ${p => p.theme.colors.background};
   border-right: ${p => `1px solid ${p.theme.colors.border}`}; 
 `;
