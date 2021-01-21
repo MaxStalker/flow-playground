@@ -1,6 +1,6 @@
 import styled, { CreateStyled } from '@emotion/styled';
 
-type Theme = {
+export type Theme = {
   colors: {
     primary: string;
     background: string;
