@@ -1,6 +1,13 @@
-import styled from "@emotion/styled";
+import styled from 'util/styled';
 
 export const Header = styled.div`
   grid-area: header;
-  background: var(--bg);
+  ${({ theme }) => {
+    const { colors } = theme;
+    const { background, border } = colors;
+    return `
+        background: ${background};
+        border-bottom: 1px solid ${border};
+    `;
+  }}
 `;
