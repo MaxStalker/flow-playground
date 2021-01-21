@@ -4,9 +4,9 @@ export default {
   rules: [{ background: 'EDF9FA' }],
   colors: {
     'editor.foreground': '#000000',
-    'editor.background': '#EDF9FA',
+    'editor.background': '#FFFFFF',
     'editorCursor.foreground': '#8B0000',
-    'editor.lineHighlightBackground': '#0000FF20',
+    'editor.lineHighlightBackground': '#0000FF11',
     'editorLineNumber.foreground': '#008800',
     'editor.selectionBackground': '#88000030',
     'editor.inactiveSelectionBackground': '#88000015',
