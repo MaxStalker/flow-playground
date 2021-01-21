@@ -3,9 +3,11 @@ import { Button, Flex, Text } from "theme-ui";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaCodeBranch, FaDiscord, FaTwitter } from "react-icons/fa";
+import { BsGearFill as GearIcon } from "react-icons/bs";
 import { Header as HeaderRoot } from "layout/Header";
 import Sidebar from "components/Sidebar";
 import Examples from "components/Examples";
+import Settings from "components/Settings";
 import { Logo, LogoText } from "components/Logo";
 
 import Mixpanel from "../../util/mixpanel";
@@ -33,8 +35,10 @@ const FDP = [
 const EditorLayout: React.FC = () => {
   const [showExamples, toggleShowExamples] = useState(false);
   const [projectIsPlayground, setIsPlayground] = useState(false);
-
   const { project, mutator, isSavingCode, isLoading, active } = useProject();
+
+  const [showSettings, setShowSettings] = useState(false);
+  const toggleSettings = () => setShowSettings(!showSettings);
 
   useEffect(() => {
     if (project && project.id) {
@@ -156,6 +160,9 @@ const EditorLayout: React.FC = () => {
             >
               <NavButton>Flow Docs</NavButton>
             </a>
+              <NavButton>
+                <GearIcon size={"20px"} onClick={toggleSettings} title={"Toggle Settings"}/>
+              </NavButton>
           </Nav>
         </Header>
       </HeaderRoot>
@@ -165,6 +172,7 @@ const EditorLayout: React.FC = () => {
         project={project}
         active={active}
       />
+      { showSettings && <Settings/>}
       <Examples
         visible={showExamples}
         triggerClose={() => {
