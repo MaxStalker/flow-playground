@@ -1,7 +1,8 @@
 import base from './theme';
 import { extractTokenColors } from 'util/theme';
-const theme = require('monaco-themes/themes/Monokai.json');
+import { monokaiBright } from './themeList';
 
+const theme = monokaiBright;
 const tokenColors = extractTokenColors(theme.rules);
 
 const whitespace = theme.colors['editorWhitespace.foreground'];
